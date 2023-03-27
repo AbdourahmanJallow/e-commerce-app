@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from '../../assets/jpg/store.jpg';
 
 function Navbar() {
     return (
         <nav className="navbar border-b bg-slate-800 text-white">
             <div className="container mx-auto px-6">
                 <div className="flex-1">
-                    <h3 className="text-2xl font-bold">E-Commerce</h3>
+                    <h3 className="text-2xl font-bold">
+                        <img src={logo} alt="logo" width='50' className="rounded-full"/>
+                    </h3>
                 </div>
                 <div className="flex-none">
                     <div className="flex justify-end">
