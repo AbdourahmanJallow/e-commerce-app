@@ -40,11 +40,16 @@ function GoogleAuth() {
             <p className="text-center mb-3">OR</p>
             <button
                 type="submit"
-                className="p-2"
+                className="p-2 link-hover"
                 onClick={onGoogleClick}
             >
-                {location.pathname === "/sign-up" ? "Sign Up" : "Login"} with {" "}
-                <img src={googleIcon} width="30" className="inline-block mx-1" alt='google icon'/>
+                {location.pathname === "/sign-up" ? "Sign Up" : "Login"} with{" "}
+                <img
+                    src={googleIcon}
+                    width="30"
+                    className="inline-block mx-1"
+                    alt="google icon"
+                />
                 oogle
             </button>
         </div>

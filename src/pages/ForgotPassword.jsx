@@ -36,7 +36,7 @@ function ForgotPassword() {
                             required
                         />
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-3 flex justify-end">
                         <button className="btn btn-outline">
                             Send
                         </button>

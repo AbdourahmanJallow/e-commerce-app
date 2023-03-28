@@ -78,6 +78,14 @@ function Login() {
                                         Forgot password?
                                     </Link>
                                 </label>
+                                <label className="label label-text-alt">
+                                    Don't have an account?
+                                    <Link to="/sign-up" className="">
+                                        <span className="text-green-500 link link-hover">
+                                            Sign up here
+                                        </span>
+                                    </Link>
+                                </label>
                             </div>
                             <div className="form-control mt-6">
                                 <button

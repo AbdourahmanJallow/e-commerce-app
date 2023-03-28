@@ -64,7 +64,7 @@ function Explore() {
                         </ul>
                     </main>
                 </> :
-                    <p>No Items for sale</p>
+                    <p className="text-3xl text-center font-semibold">No Items for sale</p>
             }
         </main>
     );
