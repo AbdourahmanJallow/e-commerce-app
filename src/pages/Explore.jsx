@@ -16,7 +16,7 @@ function Explore() {
                 const q = query(
                     itemsRef,
                     orderBy("timestamp", "desc"),
-                    limit(5)
+                    limit(10)
                 );
                 const querySnap = await getDocs(q);
 
@@ -42,30 +42,32 @@ function Explore() {
 
     console.log(items);
 
-
     return (
         <main className="flex flex-col justify-start p-6">
             <header>
                 <h3 className="text-3xl font-bold">Items For Sale</h3>
             </header>
-            {loading ? <Spinner /> : items && items.length > 0 ?
+            {loading ? (
+                <Spinner />
+            ) : items && items.length > 0 ? (
                 <>
                     <main className="mt-3">
-                        <ul className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md-grid-cols-2 gap-8">
-                            {
-                                items.map((item) => (
-                                    <ListItem
-                                        key={item.id}
-                                        data={item.data}
-                                        id={item.id}
-                                    />
-                                ))
-                            }
+                        <ul className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 gap-8">
+                            {items.map((item) => (
+                                <ListItem
+                                    key={item.id}
+                                    data={item.data}
+                                    id={item.id}
+                                />
+                            ))}
                         </ul>
                     </main>
-                </> :
-                    <p className="text-3xl text-center font-semibold">No Items for sale</p>
-            }
+                </>
+            ) : (
+                <p className="text-3xl text-center font-semibold">
+                    No Items for sale
+                </p>
+            )}
         </main>
     );
 }

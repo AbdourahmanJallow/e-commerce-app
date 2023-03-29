@@ -11,6 +11,7 @@ import Spinner from "./Spinner";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
+import { db } from '../firebase.config.js'
 
 function SellItem() {
     const [loading, setLoading] = useState(false);
@@ -106,14 +107,22 @@ function SellItem() {
 
         console.log(imageUrls);
         console.log(formData);
-
+        
         const formDataCopy = {
             ...formData,
             imageUrls,
             timestamp: serverTimestamp()
         };
         
+        console.log(formDataCopy);
+        delete formDataCopy.images
+        // formData.imageUrls = imageUrls;
+        
+        await addDoc(collection(db, 'items'),formDataCopy);
+        // console.log(docRef)
         setLoading(false);
+        toast.success('Item saved successfully')
+        // navigate('/')
     }
 
     const onChange = (e) => {
@@ -126,7 +135,7 @@ function SellItem() {
         }
 
         if (!e.target.files) {
-            setFormData(prevState => ({
+            setFormData((prevState) => ({
                 ...prevState,
                 [e.target.id]: e.target.value
             }))
@@ -196,7 +205,7 @@ function SellItem() {
                         <div className="block">
                             <button
                                 type="submit"
-                                className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-amber-400 hover:bg-amber-300 border-none"
+                                className="btn btn-xs sm:btn-sm md:btn-md bg-amber-400 hover:bg-amber-300 border-none"
                             >
                                 Sell item
                             </button>

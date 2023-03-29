@@ -5,7 +5,7 @@ function ListItem({ data, id }) {
     return (
         <li className="card shadow-md bg-base-100 p-4 flex flex-col">
             <div
-                className="bg-cover bg-center"
+                className="bg-cover bg-center rounded-md"
                 style={{
                     backgroundImage: `url(${data.imageUrls[0]})`,
                     backgroundRepeat: "no-repeat",
