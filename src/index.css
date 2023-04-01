@@ -32,3 +32,54 @@
         transform: rotate(360deg);
     }
 }
+
+.btn {
+    text-transform: none;
+}
+
+li .btn, nav .btn {
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+li p.btn {
+    background-color: darkorange;
+    border: none;
+}
+li p.btn:hover {
+    background-color: rgb(255, 140, 0);
+}
+
+nav ul .btn{
+    background-color: aliceblue;
+    color: #222;
+}
+nav ul .btn:hover{
+    /* font-size: 1.15rem; */
+    background-color: aliceblue;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+nav ul li {
+    color: #222;
+}
+
+
+@media screen and (max-width: 769px){
+    .mobileNav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: #1e293b;
+        position: fixed;
+        height: 100vh;
+        top: 90px;
+        right: 0;
+        width: 300px;
+        padding: 40px 0 0 30px;
+        box-shadow: 40px 0 0 10px;
+    }
+    .mobileNav li{
+        margin-bottom: 1rem;
+    }
+}

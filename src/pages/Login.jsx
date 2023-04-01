@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import {toast} from 'react-toastify'
 import GoogleAuth from "../components/GoogleAuth";
+import { ReactComponent as EyeIcon } from "../assets/svg/visibilityIcon.svg";
 
 function Login() {
+    const [isVisible, setIsVisible] = useState(false)
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -60,15 +62,21 @@ function Login() {
                                     required
                                 />
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <input
-                                    type="text"
-                                    placeholder="password"
+                                    type={isVisible ? `text` : `password`}
+                                    placeholder={`password`}
                                     id="password"
                                     value={password}
                                     onChange={onChange}
-                                    className="input input-bordered"
+                                    className="relative input input-bordered"
                                     required
+                                />
+                                <EyeIcon
+                                    className="absolute top-3 right-2"
+                                    width="30"
+                                    fill="black"
+                                    onClick={()=> setIsVisible(prevState => !prevState)}
                                 />
                                 <label className="label">
                                     <Link

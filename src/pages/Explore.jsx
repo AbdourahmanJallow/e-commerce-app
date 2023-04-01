@@ -5,8 +5,11 @@ import { db } from "../firebase.config";
 import { collection, getDocs, query, limit, orderBy } from "firebase/firestore";
 import { toast } from "react-toastify";
 import ListItem from "../components/ListItem";
+
+
 function Explore() {
-    const [items, setItems] = useState(null);
+
+    const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -44,9 +47,12 @@ function Explore() {
 
     return (
         <main className="flex flex-col justify-start p-6">
-            <header>
-                <h3 className="text-3xl font-bold">Items For Sale</h3>
-            </header>
+            {items.length > 0 && (
+                <header>
+                    <h3 className="text-3xl font-bold">Items</h3>
+                </header>
+            )}
+
             {loading ? (
                 <Spinner />
             ) : items && items.length > 0 ? (
@@ -57,7 +63,7 @@ function Explore() {
                                 <ListItem
                                     key={item.id}
                                     data={item.data}
-                                    id={item.id}
+                                    // id={item.id}
                                 />
                             ))}
                         </ul>
