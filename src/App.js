@@ -10,21 +10,11 @@ import ForgotPassword from "./pages/ForgotPassword";
 import { ToastContainer } from "react-toastify";
 import SellItem from "./components/SellItem";
 import ShoppingCart from "./pages/ShoppingCart";
-import { CartProvider } from './context/CartContext'
+import { CartProvider } from "./context/CartContext";
 import { useState, useEffect } from "react";
 import Nav from "./components/layout/Nav";
 
 function App() {
-    const [cartItems, setCartItems] = useState([])
-
-    useEffect(() => {
-        onAddToCart()
-    }, [])
-
-    const onAddToCart = (item) => {
-        const newCart = [...cartItems, item];
-        setCartItems(newCart);
-    }
 
     return (
         <>
@@ -35,15 +25,7 @@ function App() {
                         <Nav />
                         <main className="container mx-auto px-6 ">
                             <Routes>
-                                <Route
-                                    path="/"
-                                    element={
-                                        <Explore
-                                            // onAddToCart={onAddToCart}
-                                            // cartItems={cartItems}
-                                        />
-                                    }
-                                />
+                                <Route path="/" element={<Explore />} />
                                 <Route to="/profile" element={<PrivateRoute />}>
                                     <Route
                                         path="/profile"
@@ -53,7 +35,7 @@ function App() {
                                 <Route
                                     path="/cart"
                                     element={
-                                        <ShoppingCart cartItems={cartItems} />
+                                        <ShoppingCart  />
                                     }
                                 />
                                 <Route path="/sign-up" element={<SignUp />} />

@@ -3,8 +3,7 @@ const cartReducer = (state, action) => {
         case 'ADD_TO_CART':
             return {
                 ...state,
-                cartItems: action.data,
-                loading: false
+                cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
             };
         case 'SET_LOADING':
             return {
@@ -18,3 +17,11 @@ const cartReducer = (state, action) => {
 }
 
 export default cartReducer;
+
+/* 
+return {
+                ...state,
+                cartItems: [...state.cartItems,action.payload],
+                loading: false
+            };
+ */

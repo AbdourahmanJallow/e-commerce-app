@@ -13,7 +13,7 @@ function Navbar() {
     const [clicked, setClicked] = useState(false)
 
     return (
-        <div className="relative navbar border-b bg-slate-100 text-whiteq">
+        <div className="relative navbar border-b bg-slate-100 text-white">
             <div className="container mx-auto px-6">
                 <div className="flex-1">
                     <Link>

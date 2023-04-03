@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { BsBoxArrowRight } from "react-icons/bs";
 import { MdOutlineExplore } from "react-icons/md";
+import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import { HiMenuAlt1 } from "react-icons/hi";
@@ -16,10 +16,14 @@ function Nav() {
         navLinks.classList.toggle('top-[10%]')
     }
     return (
-        <header className="bg-white">
+        <header className="bg-slate-200 p-2">
             <nav className="flex justify-between items-center w-[92%] mx-auto py-2">
                 <div>
-                    <FaShoppingCart size={30} className="w-16" />
+                    <FaShoppingCart
+                        size={40}
+                        className="w-16"
+                        fill="darkorange"
+                    />
                 </div>
                 <div
                     className={` md:static md:min-h-fit md:w-auto absolute min-h-[50vh] bg-white md:bg-slate md:rounded-md left-0 ${
@@ -43,16 +47,14 @@ function Nav() {
                         <li>
                             <Link className="hover:text-gray-500" to="/cart">
                                 Cart
-                                <FaShoppingCart className="inline-block text-xl mx-1" />
+                                <HiOutlineShoppingCart className="inline-block text-xl mx-1" />
                             </Link>
                         </li>
                     </ul>
                 </div>
                 <div className="flex items-center gap-6">
                     <button className="bg-slate-800 text-white px-5 py-2 rounded-full hover:bg-slate-700">
-                        <Link to='/login'>
-                            Sign in
-                        </Link>
+                        <Link to="/login">Sign in</Link>
                         <BsBoxArrowRight className="inline-block text-2xl mx-1" />
                     </button>
                     <div

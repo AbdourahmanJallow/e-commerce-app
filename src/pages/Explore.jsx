@@ -58,7 +58,7 @@ function Explore() {
             ) : items && items.length > 0 ? (
                 <>
                     <main className="mt-3">
-                        <ul className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 gap-8">
+                        <ul className="grid grid-cols-1 xl:grid-cols-3 xl:gap-16 lg:grid-cols-2 md:gap-16 md:grid-cols-2 gap-8">
                             {items.map((item) => (
                                 <ListItem
                                     key={item.id}
