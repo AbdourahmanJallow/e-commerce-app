@@ -18,7 +18,7 @@ function ListItem({ item }) {
 
     const { name, imageUrls, price } = data;
     return (
-        <li className="card min-w-fit bg-base-100 shadow-xl">
+        <li className="card min-w-fit bg-base-100 shadow-xl hover:shadow-indigo-700">
             <figure className="px-10 pt-10">
                 <img src={imageUrls[0]} alt={name} className="rounded-xl" />
             </figure>

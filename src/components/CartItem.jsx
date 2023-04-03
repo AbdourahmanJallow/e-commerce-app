@@ -1,8 +1,6 @@
 import { IoIosRemoveCircle } from 'react-icons/io';
 import { CartState } from "../context/CartContext";
 
-
-/* <IoIosRemoveCircle /> */
 function CartItem({ cart }) {
     const {
         state: { cartItems },
@@ -28,7 +26,7 @@ function CartItem({ cart }) {
                 </div>
             </td>
             <td>{address}</td>
-            <td>D{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+            <td>D{price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
             <th>
                 <button type='submit' onClick={console.log(cart)}>
                     <IoIosRemoveCircle size={30} fill="red" className='inline' onClick={() => dispatch({

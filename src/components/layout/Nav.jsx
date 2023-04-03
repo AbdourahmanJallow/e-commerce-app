@@ -15,12 +15,7 @@ function Nav() {
         state: { cartItems },
         dispatch
     } = CartState();
-    const length = cartItems.length;
 
-    const navLinks = document.querySelector(".nav-links");
-    const onToggleMenu = (e) => {
-        navLinks.classList.toggle("top-[10%]");
-    };
     return (
         <header className="bg-slate-200 p-2">
             <nav className="flex justify-between items-center w-[92%] mx-auto py-2">
@@ -32,25 +27,25 @@ function Nav() {
                     />
                 </div>
                 <div
-                    className={` md:static md:min-h-fit md:w-auto absolute min-h-[50vh] bg-white md:bg-slate md:rounded-md left-0 ${
-                        open ? `top-14` : `top-[-100%]`
+                    className={` md:static md:min-h-fit md:w-auto absolute min-h-[40vh] bg-slate-800 md:bg-white md:rounded-md left-0 ${
+                        open ? `top-16` : `top-[-100%]`
                     }
-                    w-full flex items-center px-5 z-10`}
+                    w-full flex items-center justify-center px-5 z-10`}
                 >
                     <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 p-3">
-                        <li>
+                        <li className="text-white md:text-black">
                             <Link className="hover:text-gray-500" to="/">
                                 Explore
                                 <MdOutlineExplore className="inline-block text-xl mx-1" />
                             </Link>
                         </li>
-                        <li>
+                        <li className="text-white md:text-black">
                             <Link className="hover:text-gray-500" to="/profile">
                                 Profile
                                 <GoPerson className="inline-block text-xl mx-1" />
                             </Link>
                         </li>
-                        <li className="">
+                        <li className="text-white md:text-black">
                             <Link
                                 className="wrapper hover:text-gray-500"
                                 to="/cart"
