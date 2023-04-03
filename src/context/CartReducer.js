@@ -5,23 +5,19 @@ const cartReducer = (state, action) => {
                 ...state,
                 cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
             };
+        case 'REMOVE_FROM_CART':
+            return {
+                ...state,
+                cartItems: state.cartItems.filter((item) => item.id !== action.payload.id)
+            }
         case 'SET_LOADING':
             return {
                 ...state,
                 loading: true
             }
-            
         default:
             return state;
     }
 }
 
 export default cartReducer;
-
-/* 
-return {
-                ...state,
-                cartItems: [...state.cartItems,action.payload],
-                loading: false
-            };
- */

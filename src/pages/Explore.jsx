@@ -62,7 +62,7 @@ function Explore() {
                             {items.map((item) => (
                                 <ListItem
                                     key={item.id}
-                                    data={item.data}
+                                    item={item}
                                     // id={item.id}
                                 />
                             ))}

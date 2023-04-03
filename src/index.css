@@ -15,7 +15,6 @@
     align-items: center;
 }
 
-
 .loadingSpinner {
     width: 64px;
     height: 64px;
@@ -37,7 +36,8 @@
     text-transform: none;
 }
 
-li .btn, nav .btn {
+li .btn,
+nav .btn {
     font-weight: normal;
     font-size: 0.8rem;
 }
@@ -50,11 +50,11 @@ li p.btn:hover {
     background-color: rgb(255, 140, 0);
 }
 
-nav ul .btn{
+nav ul .btn {
     background-color: aliceblue;
     color: #222;
 }
-nav ul .btn:hover{
+nav ul .btn:hover {
     /* font-size: 1.15rem; */
     background-color: aliceblue;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -63,8 +63,76 @@ nav ul li {
     color: #222;
 }
 
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -mob-border-radius: 9px;
+    border-radius: 9px;
+}
+.label-warning[href],
+.badge-warning[href] {
+    background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px;
+    margin-top: -5px;
+}
 
-@media screen and (max-width: 769px){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .badge:after {
+    content: attr(value);
+    font-size: 12px;
+    color: #fff;
+    background: red;
+    border-radius: 50%;
+    padding: 0 5px;
+    position: relative;
+    left: -8px;
+    top: -10px;
+    opacity: 0.9;
+} */
+/* .wrapper {
+    position: relative;
+}
+
+.wrapper span {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+} */
+
+@media screen and (max-width: 769px) {
     .mobileNav {
         display: flex;
         flex-direction: column;
@@ -79,7 +147,7 @@ nav ul li {
         padding: 40px 0 0 30px;
         box-shadow: 40px 0 0 10px;
     }
-    .mobileNav li{
+    .mobileNav li {
         margin-bottom: 1rem;
     }
 }

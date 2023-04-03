@@ -7,14 +7,20 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { GoPerson } from "react-icons/go";
+import { CartState } from "../../context/CartContext";
 
 function Nav() {
     const [open, setOpen] = useState(false);
+    const {
+        state: { cartItems },
+        dispatch
+    } = CartState();
+    const length = cartItems.length;
 
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks = document.querySelector(".nav-links");
     const onToggleMenu = (e) => {
-        navLinks.classList.toggle('top-[10%]')
-    }
+        navLinks.classList.toggle("top-[10%]");
+    };
     return (
         <header className="bg-slate-200 p-2">
             <nav className="flex justify-between items-center w-[92%] mx-auto py-2">
@@ -44,10 +50,24 @@ function Nav() {
                                 <GoPerson className="inline-block text-xl mx-1" />
                             </Link>
                         </li>
-                        <li>
-                            <Link className="hover:text-gray-500" to="/cart">
+                        <li className="">
+                            <Link
+                                className="wrapper hover:text-gray-500"
+                                to="/cart"
+                            >
                                 Cart
-                                <HiOutlineShoppingCart className="inline-block text-xl mx-1" />
+                                <HiOutlineShoppingCart
+                                    className="inline-block text-xl mx-1"
+                                    value={5}
+                                />
+                                {cartItems.length > 0 && (
+                                    <span
+                                        className="badge badge-info"
+                                        id="lblCartCount"
+                                    >
+                                        {cartItems.length}
+                                    </span>
+                                )}
                             </Link>
                         </li>
                     </ul>
