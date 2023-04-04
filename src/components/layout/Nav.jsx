@@ -8,27 +8,41 @@ import { FaTimes } from "react-icons/fa";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { GoPerson } from "react-icons/go";
 import { CartState } from "../../context/CartContext";
+import { motion } from "framer-motion";
 
 function Nav() {
-    const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const {
         state: { cartItems },
         dispatch
     } = CartState();
 
+    const variants = {
+        open: { opacity: 1, x: 0 },
+        // closed: { opacity: 0, x: "-100%", transition: 'ease', duration: 1 }
+    };
+
     return (
         <header className="bg-slate-200 p-2">
             <nav className="flex justify-between items-center w-[92%] mx-auto py-2">
                 <div>
-                    <FaShoppingCart
-                        size={40}
-                        className="w-16"
-                        fill="darkorange"
-                    />
+                    <Link to='/'>
+                        <FaShoppingCart
+                            size={40}
+                            className="w-16"
+                            fill="darkorange"
+                        />
+                    </Link>
                 </div>
-                <div
+                <motion.div
+                    animate={isOpen ? "open" : "closed"}
+                    variants={variants}
+                    transition={{
+                        ease: "easeOut",
+                        duration: 1
+                    }}
                     className={` md:static md:min-h-fit md:w-auto absolute min-h-[40vh] bg-slate-800 md:bg-white md:rounded-md left-0 ${
-                        open ? `top-16` : `top-[-100%]`
+                        isOpen ? `top-[90px]` : `top-[-100%]`
                     }
                     w-full flex items-center justify-center px-5 z-10`}
                 >
@@ -66,7 +80,7 @@ function Nav() {
                             </Link>
                         </li>
                     </ul>
-                </div>
+                </motion.div>
                 <div className="flex items-center gap-6">
                     <button className="bg-slate-800 text-white px-5 py-2 rounded-full hover:bg-slate-700">
                         <Link to="/login">Sign in</Link>
@@ -75,13 +89,15 @@ function Nav() {
                     <div
                         className="md:hidden"
                         onClick={() => {
-                            setOpen(!open);
+                            setIsOpen(!isOpen);
                         }}
                     >
-                        {open ? (
+                        {isOpen ? (
                             <FaTimes className="text-3xl cursor-pointer" />
                         ) : (
-                            <HiMenuAlt1 className="text-3xl cursor-pointer" />
+                            <HiMenuAlt1
+                                className="text-3xl cursor-pointer"
+                            />
                         )}
                     </div>
                 </div>

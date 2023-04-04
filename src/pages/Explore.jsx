@@ -5,12 +5,12 @@ import { db } from "../firebase.config";
 import { collection, getDocs, query, limit, orderBy } from "firebase/firestore";
 import { toast } from "react-toastify";
 import ListItem from "../components/ListItem";
-
+import { motion, useScroll } from "framer-motion";
 
 function Explore() {
-
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { scrollYProgress } = useScroll();
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -46,7 +46,7 @@ function Explore() {
     console.log(items);
 
     return (
-        <main className="flex flex-col justify-start p-6">
+        <motion.div className="flex flex-col justify-start p-6">
             {items.length > 0 && (
                 <header>
                     <h3 className="text-3xl font-bold">Items</h3>
@@ -74,7 +74,7 @@ function Explore() {
                     No Items for sale
                 </p>
             )}
-        </main>
+        </motion.div>
     );
 }
 

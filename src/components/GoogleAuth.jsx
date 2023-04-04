@@ -43,7 +43,7 @@ function GoogleAuth() {
                 className="p-2 link-hover"
                 onClick={onGoogleClick}
             >
-                {location.pathname === "/sign-up" ? "Sign Up" : "Login"} with{" "}
+                {location.pathname === "/sign-up" ? "Sign Up" : "Sign in"} with{" "}
                 <img
                     src={googleIcon}
                     width="30"

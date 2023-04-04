@@ -100,7 +100,7 @@ function Login() {
                                     type="submit"
                                     className="btn bg-sky-400 border-none"
                                 >
-                                    Login
+                                    Sign in
                                 </button>
                             </div>
                             {/* Google Authentication */}

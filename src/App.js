@@ -11,7 +11,6 @@ import { ToastContainer } from "react-toastify";
 import SellItem from "./components/SellItem";
 import ShoppingCart from "./pages/ShoppingCart";
 import { CartProvider } from "./context/CartContext";
-import { useState, useEffect } from "react";
 import Nav from "./components/layout/Nav";
 
 function App() {
@@ -34,9 +33,7 @@ function App() {
                                 </Route>
                                 <Route
                                     path="/cart"
-                                    element={
-                                        <ShoppingCart  />
-                                    }
+                                    element={<ShoppingCart />}
                                 />
                                 <Route path="/sign-up" element={<SignUp />} />
                                 <Route path="/login" element={<Login />} />

@@ -10,15 +10,15 @@ import {
 import Spinner from "./Spinner";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify'
-import { db } from '../firebase.config.js'
-
+import { toast } from "react-toastify";
+import { db } from "../firebase.config.js";
+import { RiMoneyDollarCircleLine } from 'react-icons/ri'
 function SellItem() {
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         address: "",
-        price: 0,
+        price: null,
         images: {}
     });
 
@@ -45,21 +45,23 @@ function SellItem() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true)
+        setLoading(true);
 
         if (images.length > 3) {
-            setLoading(false)
-            toast.error('You can only enter a max of 3 images')
-            return
+            setLoading(false);
+            toast.error("You can only enter a max of 3 images");
+            return;
         }
 
         /* Store Images */
         const storeImage = async (image) => {
             return new Promise((resolve, reject) => {
                 const storage = getStorage();
-                const fileName = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
+                const fileName = `${auth.currentUser.uid}-${
+                    image.name
+                }-${uuidv4()}`;
 
-                const storageRef = ref(storage, 'images/' + fileName);
+                const storageRef = ref(storage, "images/" + fileName);
                 const uploadTask = uploadBytesResumable(storageRef, image);
 
                 uploadTask.on(
@@ -107,23 +109,23 @@ function SellItem() {
 
         console.log(imageUrls);
         console.log(formData);
-        
+
         const formDataCopy = {
             ...formData,
             imageUrls,
             timestamp: serverTimestamp()
         };
-        
+
         console.log(formDataCopy);
-        delete formDataCopy.images
+        delete formDataCopy.images;
         // formData.imageUrls = imageUrls;
-        
-        await addDoc(collection(db, 'items'),formDataCopy);
+
+        await addDoc(collection(db, "items"), formDataCopy);
         // console.log(docRef)
         setLoading(false);
-        toast.success('Item saved successfully')
-        // navigate('/')
-    }
+        toast.success("Item saved successfully");
+        navigate('/profile')
+    };
 
     const onChange = (e) => {
         /* Check for files */
@@ -138,12 +140,12 @@ function SellItem() {
             setFormData((prevState) => ({
                 ...prevState,
                 [e.target.id]: e.target.value
-            }))
+            }));
         }
-    }
+    };
 
     if (loading) {
-        return <Spinner />
+        return <Spinner />;
     }
     return (
         <div className="py-12">
@@ -152,7 +154,9 @@ function SellItem() {
                 <form onSubmit={onSubmit}>
                     <div className="grid grid-cols-1 gap-6">
                         <label className="block">
-                            <span className="text-amber-400">Name of Item</span>
+                            <span className="text-indigo-700">
+                                Name of Item
+                            </span>
                             <input
                                 type="text"
                                 className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
@@ -163,7 +167,9 @@ function SellItem() {
                             />
                         </label>
                         <label className="block">
-                            <span className="text-amber-400">Your address</span>
+                            <span className="text-indigo-700">
+                                Your address
+                            </span>
                             <input
                                 type="text"
                                 className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
@@ -174,7 +180,7 @@ function SellItem() {
                             />
                         </label>
                         <label className="block">
-                            <span className="text-amber-400">
+                            <span className="text-indigo-700">
                                 Your Price (D)
                             </span>
                             <input
@@ -187,12 +193,17 @@ function SellItem() {
                             />
                         </label>
                         <label className="block">
-                            <span className="text-amber-400">
-                                Images of the item (max-3)
+                            <span className="text-indigo-700">
+                                Choose atleast 3 photos
                             </span>
                             <input
                                 type="file"
-                                className="mt-4 block px-0.5 border-0 border-b-2 file-input file-input-bordered file-input-info w-full max-w-xs"
+                                className="mt-4 block w-full text-sm text-slate-500
+                                    file:mr-4 file:py-2 file:px-4
+                                    file:rounded-full file:border-0
+                                    file:text-sm file:font-semibold
+                                    file:bg-violet-50 file:text-violet-700
+                                    hover:file:bg-violet-100"
                                 id="images"
                                 max="3"
                                 onChange={onChange}
@@ -202,12 +213,16 @@ function SellItem() {
                             />
                         </label>
 
-                        <div className="block">
+                        <div className="block mt-2">
                             <button
                                 type="submit"
-                                className="btn btn-xs sm:btn-sm md:btn-md bg-amber-400 hover:bg-amber-300 border-none"
+                                className="py-1 px-4 rounded-full text-white bg-indigo-700"
                             >
-                                Sell item
+                                Sell item{" "}
+                                <RiMoneyDollarCircleLine
+                                    className="inline"
+                                    size={25}
+                                />
                             </button>
                         </div>
                     </div>
@@ -218,3 +233,4 @@ function SellItem() {
 }
 
 export default SellItem;
+
