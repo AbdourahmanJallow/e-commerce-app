@@ -49,7 +49,7 @@ function Explore() {
         <motion.div className="flex flex-col justify-start p-6">
             {items.length > 0 && (
                 <header>
-                    <h3 className="text-3xl font-bold">Items</h3>
+                    <h3 className="text-3xl font-bold dark:text-white">Items</h3>
                 </header>
             )}
 
@@ -70,7 +70,7 @@ function Explore() {
                     </main>
                 </>
             ) : (
-                <p className="text-3xl text-center font-semibold">
+                <p className="text-2xl text-center font-semibold dar:text-slate-400">
                     No Items for sale
                 </p>
             )}

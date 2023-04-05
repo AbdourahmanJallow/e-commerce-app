@@ -149,17 +149,19 @@ function SellItem() {
     }
     return (
         <div className="py-12">
-            <h2 className="text-2xl font-bold">Sell Your Item</h2>
+            <h2 className="text-2xl font-bold dark:text-white">
+                Sell Your Item
+            </h2>
             <div className="mt-8 max-w-md">
                 <form onSubmit={onSubmit}>
                     <div className="grid grid-cols-1 gap-6">
                         <label className="block">
-                            <span className="text-indigo-700">
+                            <span className="dark:text-slate-400">
                                 Name of Item
                             </span>
                             <input
                                 type="text"
-                                className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                                className="dark:bg-gray-200 px-2 dark:rounded-2xl mt-0 block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                                 id="name"
                                 value={name}
                                 onChange={onChange}
@@ -167,12 +169,12 @@ function SellItem() {
                             />
                         </label>
                         <label className="block">
-                            <span className="text-indigo-700">
+                            <span className="dark:text-slate-400">
                                 Your address
                             </span>
                             <input
                                 type="text"
-                                className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                                className="dark:bg-gray-200 px-2 dark:rounded-2xl mt-0 block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                                 id="address"
                                 value={address}
                                 onChange={onChange}
@@ -180,12 +182,12 @@ function SellItem() {
                             />
                         </label>
                         <label className="block">
-                            <span className="text-indigo-700">
+                            <span className="dark:text-slate-400">
                                 Your Price (D)
                             </span>
                             <input
                                 type="number"
-                                className="form-input mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                                className="dark:bg-gray-200 px-2 dark:rounded-2xl form-input mt-0 block w-full border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
                                 id="price"
                                 value={price}
                                 onChange={onChange}
@@ -193,7 +195,7 @@ function SellItem() {
                             />
                         </label>
                         <label className="block">
-                            <span className="text-indigo-700">
+                            <span className="dark:text-slate-400">
                                 Choose atleast 3 photos
                             </span>
                             <input
