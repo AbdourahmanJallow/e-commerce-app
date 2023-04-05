@@ -36,23 +36,26 @@ function GoogleAuth() {
     };
 
     return (
-        <div className="form-control mt-3">
-            <p className="text-center mb-3">OR</p>
-            <button
-                type="submit"
-                className="p-2 link-hover"
-                onClick={onGoogleClick}
-            >
-                {location.pathname === "/sign-up" ? "Sign Up" : "Sign in"} with{" "}
-                <img
-                    src={googleIcon}
-                    width="30"
-                    className="inline-block mx-1"
-                    alt="google icon"
-                />
-                oogle
-            </button>
-        </div>
+        <>
+            <div className="form-control mt-3">
+                <p className="text-center mb-3">OR</p>
+                <button
+                    type="submit"
+                    className="p-2 link-hover"
+                    onClick={onGoogleClick}
+                >
+                    {location.pathname === "/sign-up" ? "Sign Up" : "Sign in"}{" "}
+                    with{" "}
+                    <img
+                        src={googleIcon}
+                        width="30"
+                        className="inline-block mx-1"
+                        alt="google icon"
+                    />
+                    oogle
+                </button>
+            </div>
+        </>
     );
 }
 

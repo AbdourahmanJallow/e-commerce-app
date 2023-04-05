@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { CartState } from "../context/CartContext";
 import CartItem from "../components/CartItem";
+import { toast } from "react-toastify";
 
 function ShoppingCart() {
     const {
         state: { cartItems },
+        // eslint-disable-next-line
         dispatch
     } = CartState();
 
     const [total, setTotal] = useState();
-    const [show, setShow] = useState(false);
 
     useEffect(() => {
         setTotal(
@@ -44,19 +45,22 @@ function ShoppingCart() {
                     <h3 className="font-semibold text-2xl mb-3">
                         Sub Total ({cartItems.length})
                     </h3>
-                    <p className="text-blue-600 text-xl from-neutral-focus">
-                        <span className="font-semibold">Total: D</span>
+                    <p className="text-xl text-gray-300">
+                        <span className="">Total: </span>D
                         {total
                             ?.toString()
                             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                     </p>
                 </div>
                 <div className="flex-1 flex flex-col justify-center items-center mt-4 text-sm text-primary-focus h-full">
-                    <button className="btn btn-sm btn-primary mt-4">Check out</button>
-                    {/* <div className="hidden">
-                        <p>No Functionality</p>
-                        <p>for checkout</p>
-                    </div> */}
+                    <button
+                        onClick={() => {
+                            toast.info('no functionality for check out button')
+                        }}
+                        className="btn btn-sm btn-primary mt-4"
+                    >
+                        Check out
+                    </button>
                 </div>
             </div>
         </>

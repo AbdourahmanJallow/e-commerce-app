@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {getAuth, updateProfile} from 'firebase/auth'
+import {getAuth } from 'firebase/auth'
 import { useNavigate, Link } from 'react-router-dom';
 import { BsBoxArrowLeft } from 'react-icons/bs'
 import { RiMoneyDollarCircleLine } from 'react-icons/ri'
@@ -8,22 +8,24 @@ import defaultProfile from '../assets/jpg/profile.png';
 
 function Profile() {
     const auth = getAuth();
+    // eslint-disable-next-line
     const [formData, setFormData] = useState({
         name: auth.currentUser.displayName,
         email: auth.currentUser.email,
         photoUrl: auth.currentUser.photoURL
-    })
+    });
 
     const { name, email, photoUrl } = formData;
     const navigate = useNavigate();
+
     useEffect(() => {
-        console.log(auth)
-    })
+        console.log(auth);
+    });
 
     const signOut = () => {
         auth.signOut();
-        navigate('/')
-    }
+        navigate("/");
+    };
 
     return (
         <>
@@ -46,13 +48,14 @@ function Profile() {
                     </motion.button>
                 </header>
                 <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 ">
-                    <div className="card p-3 rounded-lg shadow-lg bg-base-200">
+                    <div className="card p-3 rounded-lg shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="flex justify-between mb-4">
                                 <h3 className="card-title">Personal Details</h3>
                                 <div className="avatar online">
                                     <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                         <img
+                                            alt=""
                                             src={
                                                 photoUrl
                                                     ? photoUrl
