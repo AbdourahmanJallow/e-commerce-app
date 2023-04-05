@@ -31,7 +31,9 @@ function Profile() {
         <>
             <main className="my-10">
                 <header className="flex justify-between mb-4">
-                    <h1 className="text-3xl font-bold">Profile</h1>
+                    <h1 className="text-3xl font-bold dark:text-white">
+                        Profile
+                    </h1>
                     <motion.button
                         initial={{ x: 300 }}
                         animate={{ x: 0 }}
@@ -48,12 +50,14 @@ function Profile() {
                     </motion.button>
                 </header>
                 <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 ">
-                    <div className="card p-3 rounded-lg shadow-2xl bg-base-100">
+                    <div className="card p-3 rounded-lg shadow-2xl bg-base-100 dark:bg-slate-800">
                         <div className="card-body">
                             <div className="flex justify-between mb-4">
-                                <h3 className="card-title">Personal Details</h3>
-                                <div className="avatar online">
-                                    <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <h3 className="card-title dark:text-white">
+                                    Personal Details
+                                </h3>
+                                <div className="avatar">
+                                    <div className="w-24 rounded-full ring ring-offset-base-100 ring-offset-2">
                                         <img
                                             alt=""
                                             src={
@@ -65,8 +69,8 @@ function Profile() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="text-lg mb-3">
-                                <p>{name}</p>
+                            <div className="text-lg mb-3 dark:text-slate-400">
+                                <p className="">{name}</p>
                                 <p>{email}</p>
                             </div>
                             <motion.button
@@ -77,12 +81,9 @@ function Profile() {
                                     transition: { duration: 0.4 }
                                 }}
                                 transition={{ ease: "easeOut", duration: 1 }}
-                                className="mt-3 self-start"
+                                className="mt-3 self-start bg-indigo-700 py-3 px-4 rounded-2xl text-white"
                             >
-                                <Link
-                                    to="/sell-item"
-                                    className=" bg-indigo-700 py-3 px-4 rounded-md text-white"
-                                >
+                                <Link to="/sell-item" className="">
                                     Sell your property{" "}
                                     <RiMoneyDollarCircleLine
                                         size={25}

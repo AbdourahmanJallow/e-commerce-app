@@ -24,16 +24,28 @@ function Nav() {
     };
 
     return (
-        <header className="bg-slate-200 p-2">
+        <header className="bg-slate-200 p-2 z-10">
             <nav className="flex justify-between items-center w-[92%] mx-auto py-2">
-                <div>
-                    <Link to='/'>
+                <div className="hidden md:flex">
+                    <Link to="/">
                         <FaShoppingCart
                             size={40}
                             className="w-16"
                             fill="darkorange"
                         />
                     </Link>
+                </div>
+                <div
+                    className="md:hidden"
+                    onClick={() => {
+                        setIsOpen(!isOpen);
+                    }}
+                >
+                    {isOpen ? (
+                        <FaTimes className="text-3xl cursor-pointer" />
+                    ) : (
+                        <HiMenuAlt1 className="text-3xl cursor-pointer" />
+                    )}
                 </div>
                 <motion.div
                     animate={isOpen ? "open" : "closed"}
@@ -87,20 +99,6 @@ function Nav() {
                         <Link to="/login">Sign in</Link>
                         <BsBoxArrowRight className="inline-block text-2xl mx-1" />
                     </button>
-                    <div
-                        className="md:hidden"
-                        onClick={() => {
-                            setIsOpen(!isOpen);
-                        }}
-                    >
-                        {isOpen ? (
-                            <FaTimes className="text-3xl cursor-pointer" />
-                        ) : (
-                            <HiMenuAlt1
-                                className="text-3xl cursor-pointer"
-                            />
-                        )}
-                    </div>
                 </div>
             </nav>
         </header>

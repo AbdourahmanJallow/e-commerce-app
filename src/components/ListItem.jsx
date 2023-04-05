@@ -29,14 +29,14 @@ function ListItem({ item }) {
             }}
             animate={{ y: 0 }}
             transition={{ ease: "easeOut", duration: 2 }}
-            className="card min-w-fit bg-base-100 shadow-xl hover:shadow-indigo-700"
+            className="card min-w-fit bg-base-100 shadow-xl hover:shadow-indigo-700 dark:bg-slate-800"
         >
             <figure className="px-10 pt-10">
                 <img src={imageUrls[0]} alt={name} className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title">{name}</h2>
-                <p>D{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                <h2 className="card-title dark:text-white">{name}</h2>
+                <p className="dark:text-slate-400 text-slate-900">D{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                 <div className="card-actions">
                     {auth.currentUser?.uid === data.userRef ? 
                         <p className="p-2 bg-amber-500 rounded-lg text-white">Your item <AiOutlineCrown size={27} className="inline" /> </p> :

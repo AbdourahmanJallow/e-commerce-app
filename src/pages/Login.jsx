@@ -45,10 +45,10 @@ function Login() {
         <>
             <div className="container mx-auto flex flex-col justify-center items-center">
                 <div className="flex flex-col justify-center items-center">
-                    <h1 className="text-4xl font-bold p-3">Login!</h1>
+                    <h1 className="text-4xl font-bold p-3 dark:text-white">Login!</h1>
                     <form
                         onSubmit={onSubmit}
-                        className="card-body shadow-2xl bg-base-100 rounded-2xl"
+                        className="card-body shadow-2xl bg-base-100 dark:bg-slate-800 rounded-2xl"
                     >
                         <div className="form-control">
                             <input
@@ -99,7 +99,7 @@ function Login() {
                         <div className="form-control mt-6">
                             <button
                                 type="submit"
-                                className="btn bg-sky-400 border-none"
+                                className="btn bg-sky-400 border-none dark:text-white"
                             >
                                 Sign in
                             </button>
@@ -107,11 +107,9 @@ function Login() {
                         {/* Google Authentication */}
                         <GoogleAuth />
                     </form>
-                    {/* </div> */}
                 </div>
             </div>
         </>
-        // </div>
     );
 }
 

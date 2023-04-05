@@ -40,24 +40,24 @@ function ShoppingCart() {
                     </tbody>
                 </table>
             </div>
-            <div className="my-10 bg-slate-800 text-white flex items-center justify-between px-3 py-2 rounded-lg shadow-2xl w-80">
+            <div className="my-10 bg-slate-800 text-white flex items-center justify-between px-3 py-2 rounded-lg shadow-2xl w-96">
                 <div className="mr-10 flex-none">
                     <h3 className="font-semibold text-2xl mb-3">
                         Sub Total ({cartItems.length})
                     </h3>
-                    <p className="text-xl text-gray-300">
+                    <p className="text-xl text-slate-400">
                         <span className="">Total: </span>D
                         {total
                             ?.toString()
                             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                     </p>
                 </div>
-                <div className="flex-1 flex flex-col justify-center items-center mt-4 text-sm text-primary-focus h-full">
+                <div className="flex-1 flex flex-col justify-center items-center mt-4 text-sm text-primary-focus h-full p-3">
                     <button
                         onClick={() => {
                             toast.info('no functionality for check out button')
                         }}
-                        className="btn btn-sm btn-primary mt-4"
+                        className="btn btn-sm btn-primary mt-4 px-4"
                     >
                         Check out
                     </button>

@@ -67,9 +67,9 @@ function SignUp() {
         <div className="">
             <div className="hero-content flex-col">
                 <div className="text-center">
-                    <h1 className="md:text-5xl text-3xl font-bold">Sign Up Now!</h1>
+                    <h1 className="md:text-5xl text-3xl font-bold dark:text-white">Sign Up Now!</h1>
                 </div>
-                <div className="card flex-shrink-0 shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 shadow-2xl bg-base-100 dark:bg-slate-800">
                     <div>
                         <form onSubmit={onSubmit} className="card-body">
                             <div className="form-control">
@@ -116,22 +116,13 @@ function SignUp() {
                             <div className="form-control mt-6">
                                 <button
                                     type="submit"
-                                    className="btn bg-sky-400 border-none"
+                                    className="btn bg-sky-400 border-none dark:text-white"
                                 >
                                     Sign Up
                                 </button>
                             </div>
-                            {/* <div className="form-control mt-3">
-                                <p className="text-center mb-3">OR</p>
-                                <button
-                                    type="submit"
-                                    className="btn bg-sky-400 border-none"
-                                >
-                                    Sign In With Google
-                                </button>
-                            </div> */}
-                            <GoogleAuth />
                             {/* Google Authentication */}
+                            <GoogleAuth />
                         </form>
                     </div>
                 </div>
