@@ -26,9 +26,8 @@ function GoogleAuth() {
                     email: user.email,
                     timestamp: serverTimestamp()
                 });
-
-                navigate('/')
             }
+            navigate('/')
         } catch (error) {
             console.log(error.message)
             toast.error('Could not authorize with google')

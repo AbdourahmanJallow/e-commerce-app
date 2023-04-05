@@ -14,6 +14,7 @@ function Nav() {
     const [isOpen, setIsOpen] = useState(false);
     const {
         state: { cartItems },
+        // eslint-disable - next - line
         dispatch
     } = CartState();
 
@@ -42,7 +43,7 @@ function Nav() {
                         duration: 1
                     }}
                     className={` md:static md:min-h-fit md:w-auto absolute min-h-[40vh] bg-slate-800 md:bg-white md:rounded-md left-0 ${
-                        isOpen ? `top-[90px]` : `top-[-100%]`
+                        isOpen ? `top-[9vh]` : `top-[-100%]`
                     }
                     w-full flex items-center justify-center px-5 z-10`}
                 >
